@@ -128,3 +128,29 @@ select sum(Quantity) as Quantity, sub_Category
 from OrderDetails
 group by sub_Category
 order by Quantity desc
+
+
+
+/********** Selecting State and City wise order count **********/
+
+--selecting all the data for reference
+-- select * from OrderList
+
+
+-- Finding the state with Highest Order count
+select count(Order_ID) as [State Order count], state
+
+from OrderList
+
+group by state
+order by 1 desc
+
+
+--Finding the city with Highest Order count
+
+select count(Order_ID) as [City Order count], city
+
+from OrderList
+
+group by city
+order by 1 desc
