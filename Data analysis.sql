@@ -76,9 +76,9 @@ select @totalProfit
 
 
 
+/********** Finding the total profit percentage ****************/
 
-
--- Finding out the Profit percentage
+-- Finding out the Profit percentage using stored procedure
 
 create procedure ProfitPercentage
 as
@@ -95,6 +95,8 @@ from #Temp_ProfitperCust)
 
 set @profitPercentage= (@totalProfit/@totalSpent)*100
 
+print 'Total Order Value ' + cast(@totalSpent as varchar) 
+print 'Overall Profit ' + cast(@totalProfit as varchar) 
 print 'Your Total Profit percentage is ' + cast(@profitPercentage as varchar) + '%'
 
 
@@ -108,8 +110,21 @@ Execute ProfitPercentage
 
 
 
+/******************* Most selling category *******************/
+
+-- selecting category wise
+
+select sum(Quantity) as Quantity, Category
+
+from OrderDetails
+group by Category
+order by Quantity desc
 
 
+-- selecting sub-category wise
 
+select sum(Quantity) as Quantity, sub_Category
 
-
+from OrderDetails
+group by sub_Category
+order by Quantity desc
