@@ -5,8 +5,10 @@ The customers spent a total of Rs. 431502
 The total profit of the company is Rs.23955
 
 Highest selling category is clothes with a total sales of 3516 units
+Least selling category is Furniture with total sales of 945 units
 
 Highest selling sub-category is Saree with a total sales of 782 units
+Least selling sub-category is Tables with a total sales of 61 units
 
 State wise highest order count is from Madhya Pradesh with a total order count of 101
 State wise lowest order count is from Tamil Nadu with a total order count of 8

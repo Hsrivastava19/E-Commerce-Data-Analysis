@@ -110,7 +110,7 @@ Execute ProfitPercentage
 
 
 
-/******************* Most selling category *******************/
+/******************* Most and least selling category *******************/
 
 -- selecting category wise
 
@@ -118,7 +118,26 @@ select sum(Quantity) as Quantity, Category
 
 from OrderDetails
 group by Category
-order by Quantity desc
+
+-- most selling
+
+select top 1 sum(Quantity) as Most_Quantity, Category
+
+from OrderDetails
+group by Category
+order by 1 desc
+
+
+
+-- least selling
+
+select top 1 sum(Quantity) as Least_Quantity, Category
+
+from OrderDetails
+group by Category
+order by 1
+
+
 
 
 -- selecting sub-category wise
@@ -127,7 +146,24 @@ select sum(Quantity) as Quantity, sub_Category
 
 from OrderDetails
 group by sub_Category
-order by Quantity desc
+
+
+-- most selling
+
+select top 1 sum(Quantity) as Most_Quantity, sub_Category
+
+from OrderDetails
+group by sub_Category
+order by 1 desc
+
+
+-- least selling
+
+select top 1 sum(Quantity) as Least_Quantity, sub_Category
+
+from OrderDetails
+group by sub_Category
+order by 1
 
 
 
