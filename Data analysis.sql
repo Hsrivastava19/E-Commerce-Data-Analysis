@@ -190,3 +190,17 @@ from OrderList
 
 group by city
 order by 1 desc
+
+
+
+
+/******** Find state wise order percentage ********/
+
+SELECT
+    ol.State,
+    round(CAST(SUM(od.Quantity) * 100 AS FLOAT) / (SELECT SUM(quantity) FROM OrderDetails),2) AS [State Percentage]
+FROM OrderList ol
+INNER JOIN OrderDetails od
+ON ol.Order_ID = od.Order_ID
+GROUP BY ol.State
+ORDER BY 2 DESC;
